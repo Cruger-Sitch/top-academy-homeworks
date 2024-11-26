@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}добавить событие{% endblock %}
+
+{% block content %}
+    <h2>Добавить событие</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="title">Название события:</label>
+        <input type="text" name="title" required>
+
+        <label for="description"> Описание события:</label>
+        <textarea name="description" required></textarea>
+
+        <label for="event_date">Дата события:</label>
+        <input type="date" name="event_date" required>
+
+        <label for="location">Место события</label>
+        <input type="text" name="location" required>
+
+        <button type="submit">Добавить событие</button>
+    </form>
+{% endblock %}}

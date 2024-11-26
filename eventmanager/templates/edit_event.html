@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Редактировать событие: {% endblock %}
+
+{% block content %}
+    <h2>Редактировать событие: {{ event.title }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="title">Название события</label>
+        <input type="text" name="title" value="{{ event.title }}" required>
+
+        <label for="description">Описание события:</label>
+        <textarea name="description" required>{{ event.description }}</textarea>
+
+        <label for="event_date">Дата события:</label>
+        <input type="date" name="event_date" value="{{ event.event_date }}" required>
+
+        <label for="location">Место события:</label>
+        <input type="text" name="location" value="{{ event.location }}" required>
+        <button type="submit">Сохранить изменения</button>
+    </form>
+{% endblock %}

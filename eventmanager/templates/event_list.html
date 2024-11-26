@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Список событий{% endblock %}
+
+{% block content %}
+<h2>Список событий</h2>
+<a href="{% url 'add_event' %}">Добавить новое событие</a>
+<ul>
+    {% for event in events %}
+    <li>
+        <strong>Название мероприятия: </strong>{{ event.title }}<br>
+        <strong>Дата мероприятия: </strong>{{ event.event_date }}<br>
+        <a href="{% url 'edit_event' event.id %}">Редактировать</a> |
+        <a href="{% url 'delete_event' event.id %}">Удалить</a>
+    </li>
+    {% empty %}
+    <li>Нет доступных событий.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
